@@ -12,6 +12,16 @@ router.get('/', async(req, res) => {
     }
 })
 
+router.get('/:id', async(req, res) => {
+    const cars = config.getDbCPR().collection("cars");
+    try {
+        const data = await cars.findOne({ _id: Number(req.params.id) });
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(400).json({ message: error })
+    }
+})
+
 router.post('/', async(req,res) => {
     const cars = config.getDbCPR().collection("cars");
 
@@ -26,6 +36,7 @@ router.post('/', async(req,res) => {
         engine_capacity,
         seat,
         imageUrl,
+        dataset,
     } = req.body
 
     const data = await cars.find({}).toArray();
@@ -42,7 +53,15 @@ router.post('/', async(req,res) => {
         drive_type: drive_type || "",
         engine_capacity: engine_capacity || "",
         seat: seat || "",
-        imageUrl: imageUrl || ""
+        imageUrl: imageUrl || "",
+        dataset: dataset.map((data, index) => {
+            return {
+                id_dataset: index + 1,
+                id_car: _id,
+                created_year: data.created_year,
+                price: data.price
+            }
+        }) || []
     }
 
     try {

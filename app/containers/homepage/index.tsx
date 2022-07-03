@@ -20,20 +20,13 @@ const Homepage = () => {
     if(!state.carReducer.isSuccess) {
       dispatch(getAllCars())
     }
-  }, [state.carReducer.isSuccess])
+  }, [dispatch, state.carReducer.isSuccess])
 
   // console.log(state.carReducer)
 
   return (
     <Layout>
-      <div className="w-full h-[505px] flex">
-        <img
-          className="absolute -z-50"
-          src={"/images/banner.png"}
-          alt=""
-          width={"100%"}
-          height={"100%"}
-        />
+      <div className="w-full h-[505px] flex bg-[url('/images/banner.png')] bg-cover">
         <div className="w-full flex items-center justify-center">
           <h1 className="absolute max-w-[1200px] text-[52px] font-semibold text-white text-center">
             Anda Ingin Tahu Selisih Harga Mobil Tahun Lama? Website Disini

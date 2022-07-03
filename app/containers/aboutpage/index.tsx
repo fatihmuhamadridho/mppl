@@ -10,7 +10,7 @@ const AboutPage = () => {
         <h1 className="text-[24px] font-bold">Tentang Kami</h1>
       </div>
       <img
-        className="absolute -z-50"
+        className="w-full h-[300px] absolute -z-50 object-cover"
         src={"/images/banner2.png"}
         alt=""
         width={"100%"}
