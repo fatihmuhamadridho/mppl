@@ -6,7 +6,7 @@ router.get('/', async(req, res) => {
     const cars = config.getDbCPR().collection("cars");
     try {
         const data = await cars.find({}).toArray();
-        res.status(400).json(data)
+        res.status(200).json(data)
     } catch (error) {
         res.status(400).json({ message: error })
     }
@@ -47,7 +47,7 @@ router.post('/', async(req,res) => {
 
     try {
         const result = await cars.insertOne(newCar);
-        res.status(400).json({ result: result, data: newCar })
+        res.status(200).json({ result: result, data: newCar })
     } catch (error) {
         res.send(400).json({ message: error })
     }
