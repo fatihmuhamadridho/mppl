@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 // Import Routes
 const customerRoute = require('./routes/customer');
 const carsRouter = require('./routes/cpr/cars');
+const registerRouter = require('./routes/cpr/register');
+const loginRouter = require('./routes/cpr/login');
 
 app.use("/api/test", (req, res) => {
     res.send({
@@ -23,6 +25,8 @@ app.use("/api/test", (req, res) => {
 
 app.use("/api/test2", customerRoute)
 app.use("/api/cpr/cars", carsRouter)
+app.use("/api/cpr/register", registerRouter)
+app.use("/api/cpr/login", loginRouter)
 
 app.listen(port, function(){
     console.log('server is okay!')

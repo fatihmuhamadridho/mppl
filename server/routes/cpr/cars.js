@@ -68,7 +68,7 @@ router.post('/', async(req,res) => {
         const result = await cars.insertOne(newCar);
         res.status(200).json({ result: result, data: newCar })
     } catch (error) {
-        res.send(400).json({ message: error })
+        res.status(400).json({ message: error })
     }
 })
 

@@ -17,10 +17,10 @@ const Homepage = () => {
   const state = selector((state: any) => state);
 
   useEffect(() => {
-    if(!state.carReducer.isSuccess) {
+    if(!state.carReducer.isSuccess || state.carReducer.cars === null) {
       dispatch(getAllCars())
     }
-  }, [dispatch, state.carReducer.isSuccess])
+  }, [dispatch, state.carReducer.cars, state.carReducer.isSuccess])
 
   // console.log(state.carReducer)
 
