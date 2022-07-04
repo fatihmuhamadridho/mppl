@@ -30,7 +30,7 @@ const ListCarsPage = () => {
             <Breadcrumbs />
           </div>
           <div className="grid grid-cols-4">
-            {state.carReducer.cars.map((car: any, index: any) => {
+            {state?.carReducer?.cars?.map((car: any, index: any) => {
               return <CarsCard key={index} car={car} />;
             })}
           </div>
