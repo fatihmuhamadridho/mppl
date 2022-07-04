@@ -89,7 +89,7 @@ const RegressionPage = () => {
     <Layout>
       <div className="w-full max-w-[1192px] mx-auto">
         <div className="pt-[44px] pb-4">
-          <Breadcrumbs />
+          {/* <Breadcrumbs /> */}
         </div>
         <div className="pb-[32px] flex items-center space-x-4">
           <Image

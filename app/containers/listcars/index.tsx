@@ -27,7 +27,7 @@ const ListCarsPage = () => {
         <Filter />
         <div className="">
           <div className="pb-4">
-            <Breadcrumbs />
+            {/* <Breadcrumbs /> */}
           </div>
           <div className="grid grid-cols-4">
             {state?.carReducer?.cars?.map((car: any, index: any) => {
